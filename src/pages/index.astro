@@ -1,5 +1,13 @@
 ---
-
+import starfield from "../assets/images/starfield.png";
+import meteor from "../assets/images/meteor.png";
+import screenshot from "../assets/images/screenshot.png";
+import { Image } from "astro:assets";
+import Button from "../components/Button.astro";
+import Navigation from "../components/Navigation.astro";
+import Icon from "heroicons-astro/Heroicon.astro";
+import Footer from "../components/Footer.astro";
+import "../assets/styles/global.css";
 ---
 
 <html lang="en">
@@ -8,9 +16,183 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<script src="../lib/fadeItems.js" />
+		<script src="../lib/starField.js" />
 		<title>Astro</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-slate-900 w-full">
+	
+		
+		<!-- star field -->
+		<canvas class="flex w-full h-full overflow-hidden absolute top-0 left-0 -z-20" id="starfield">
+		</canvas>
+
+		<!-- second deck -->
+		<div class="bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-fuchsia-600/30 to-slate-800/0">
+
+			<Navigation />
+			<!-- marquee -->
+			<div class="container mx-auto pt-24 max-w-5xl">
+
+				<div class="flex justify-center mb-6">
+					<div class="rounded-full text-xs text-slate-200 min-w-content justify-start bg-slate-950/40 text-center border border-purple-100/10 inline-flex items-center">
+						<div class="rounded-full border border-fuchsia-600/70 px-4 py-2 bg-gradient-to-r from-fuchsia-700/60 to-blue-700/60 flex-shrink-0 text-white/70">
+							Claim your tickets
+						</div>
+						<div class="px-4 py-2 flex-shrink-0">
+							CosmikCon &mdash; Jan. 11-14 2024
+						</div>
+					</div>
+				</div>
+
+				<div class="flex p-4 md:p-0">
+					<h1 class="text-3xl md:text-7xl text-slate-100 text-center font-bold drop-shadow-[0_8px_12px_rgba(0,0,0,0.3)]">
+						Take your marketing website to infinity, <span class="text-emerald-500">and beyond.</span>
+					</h1>
+				</div>
+			</div>
+
+			<!-- app screenshot -->
+			<div class="overflow-hidden w-full px-16 pt-24 relative">
+				<div class="container mx-auto">
+					<Image src={screenshot} alt="A field of stars" class="rounded-tl-xl rounded-tr-xl border border-slate-200/10 mx-auto border-b-0" />
+				</div>
+			</div>
+
+		</div>
+
+		<!-- third deck -->
+		<div class="bg-gradient-to-r from-slate-900/0 via-slate-500/50 to-slate-900/0 h-[1px] w-full"></div>
+
+		<div class="bg-slate-900 p-4 md:p-16">
+
+			<div class="container mx-auto max-w-5xl mb-8">
+				<div class="text-center">
+					<h2 class="text-center font-semibold text-slate-100 text-3xl mb-1">Tools built for blast off.</h2>
+					<h3 class="text-center text-md text-slate-500 font-light">Clear the gantry and get into orbit.</h3>
+				</div>
+
+				<div class="container mx-auto max-w-5xl flex justify-center py-8 gap-3">
+					<Button buttonType="primary" buttonLink="#" buttonText="Free 7 Day Trial" />
+					<Button buttonType="secondary" buttonLink="#" buttonText="Learn More" />
+				</div>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-4 md:container m-auto md:max-w-7xl gap-5">
+				
+				<div class="rounded-xl border border-slate-300/5 p-8 bg-slate-800/25 md:col-span-2 text-center md:text-left shadow-lg shadow-black/30 fade-item">
+					<div class="rounded-xl bg-slate-950/30 flex items-center justify-center w-14 h-14 mb-2 mx-auto md:mx-0 shiny">
+						<Icon iconCode="beaker" iconStyle="outline" customClasses="h-6 w-6 text-emerald-500" />
+					</div>
+					<h3 class="text-xl text-slate-300 mb-2 font-semibold">
+						Satisfy your experimental side
+					</h3>
+					<p class="text-sm text-slate-500 leading-normal">
+						With Cosmik you can run A/B tests easily. Analyse a design's performance and find bugs before launch.
+					</p>
+				</div>
+
+				<div class="rounded-xl border border-slate-300/5 p-8 bg-slate-800/25 md:col-span-1 text-center shadow-lg shadow-black/30 fade-item">
+					<div class="rounded-xl bg-slate-950/30 flex items-center justify-center w-14 h-14 mb-2 mx-auto shiny">
+						<Icon iconCode="code" iconStyle="outline" customClasses="h-6 w-6 text-emerald-500" />
+					</div>
+					<h3 class="text-xl text-slate-300 mb-2 font-semibold">
+						No code
+					</h3>
+					<p class="text-sm text-slate-500 leading-normal">
+						Build with no code, or add your own. It's up to you.
+					</p>
+				</div>
+
+				<div class="rounded-xl border border-slate-300/5 p-8 bg-slate-800/25 md:col-span-1 text-center shadow-lg shadow-black/30 fade-item">
+					<div class="rounded-xl bg-slate-950/30 flex items-center justify-center w-14 h-14 mb-2 mx-auto shiny">
+						<Icon iconCode="collection" iconStyle="outline" customClasses="h-6 w-6 text-emerald-500" />
+					</div>
+					<h3 class="text-xl text-slate-300 mb-2 font-semibold">
+						Many sites, one account
+					</h3>
+					<p class="text-sm text-slate-500 leading-normal">
+						Share styles and components across multiple sites.
+					</p>
+				</div>
+
+				<div class="rounded-xl border border-slate-300/5 p-8 bg-slate-800/25 md:col-span-1 text-center shadow-lg shadow-black/30 fade-item">
+					<div class="rounded-xl bg-slate-950/30 flex items-center justify-center w-14 h-14 mb-2 mx-auto shiny">
+						<Icon iconCode="light-bulb" iconStyle="outline" customClasses="h-6 w-6 text-emerald-500" />
+					</div>
+					<h3 class="text-xl text-slate-300 mb-2 font-semibold">
+						Multiplayer ready
+					</h3>
+					<p class="text-sm text-slate-500 leading-normal">
+						Collaborate with your team in real time with Cosmik Pods.
+					</p>
+				</div>
+
+				<div class="rounded-xl border border-slate-300/5 p-8 bg-slate-800/25 md:col-span-1 text-center shadow-lg shadow-black/30 fade-item">
+					<div class="rounded-xl bg-slate-950/30 flex items-center justify-center w-14 h-14 mb-2 mx-auto shiny">
+						<Icon iconCode="finger-print" iconStyle="outline" customClasses="h-6 w-6 text-emerald-500" />
+					</div>
+					<h3 class="text-xl text-slate-300 mb-2 font-semibold">
+						Roles and reporting
+					</h3>
+					<p class="text-sm text-slate-500 leading-normal">
+						Bring in just the right people, and manage who sees what.
+					</p>
+				</div>
+
+				<div class="rounded-xl border border-slate-300/5 p-8 bg-slate-800/25 md:col-span-2 text-center md:text-left shadow-lg shadow-black/30 fade-item">
+					<div class="rounded-xl bg-slate-950/30 flex items-center justify-center w-14 h-14 mb-2 mx-auto md:mx-0 shiny">
+						<Icon iconCode="sparkles" iconStyle="outline" customClasses="h-6 w-6 text-emerald-500" />
+					</div>
+					<h3 class="text-xl text-slate-300 mb-2 font-semibold">
+						Import from Figma & Sketch
+					</h3>
+					<p class="text-sm text-slate-500 leading-normal">
+						Cosmik pulls your designs from Figma or Sketch, to make buildout a snap.
+					</p>
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- fourth deck -->
+		<div class="container m-auto md:max-w-7xl relative px-4 md:p-0">
+
+			<div class="text-center m-12">
+				<h2 class="text-center font-semibold text-slate-100 text-3xl mb-1">Just ask our adoring fans.</h2>
+				<h3 class="text-center text-md text-slate-500 font-light">You'll be in good company.</h3>
+			</div>
+
+			<!-- scrim -->
+			<div class="w-full h-1/3 bg-gradient-to-t from-slate-900 z-10 absolute bottom-0 left-0 text-transparent">
+				<div class="container m-auto p-4 flex justify-center absolute bottom-2">
+					<Button buttonLink="#" buttonText="Show More" />
+				</div>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-4 m-auto gap-6 pb-8 md:mb-32">
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">Loving how cosmik seamlessly organizes my day! Calendar sync, reminders, and a sleek interface make it a game-changer. 🚀 #ProductivityBoost </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">Just discovered the magic of cosmik! Real-time collaboration, file sharing, and intuitive design make teamwork a breeze. 👥💼 #TechRevolution </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">With cosmik, my fitness goals are on point! Smart tracking, personalized insights, and goal setting keep me motivated. 🏋️‍♂️📈 #HealthTech </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">cosmik has revolutionized my learning experience! Interactive lessons, progress tracking, and a vast knowledge base make it my go-to study buddy. 📚🎓 #EdTech </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">Thanks to cosmik, my finances are stress-free! Budget tracking, expense analysis, and secure transactions have never been easier. 💸📊 #FinTech </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">cosmik turned me into a chef extraordinaire! Recipe suggestions, grocery list integration, and cooking timers make every meal a masterpiece. 🍲👨‍🍳 #SmartKitchen </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">Can't get enough of cosmik's entertainment features! Personalized recommendations, binge-worthy content, and smooth streaming redefine my downtime. 🍿🎬 #EntertainmentTech </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">Shoutout to cosmik for making travel plans a breeze! Flight updates, itinerary management, and local insights ensure a smooth journey. ✈️🌍 #TravelTech </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">cosmik has transformed my morning routine! Smart home integration, weather updates, and news briefings make every day a fresh start. ☀️🏡 #SmartLiving </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">Just upgraded my photography game with cosmik! Editing tools, filters, and seamless sharing options make it a photographer's dream. 📸🌟 #PhotographyTech </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">cosmik is a lifesaver for remote work! Virtual meetings, document collaboration, and task management keep me connected and productive. 💼💻 #RemoteWork </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">Hats off to cosmik for making my home secure! Smart cameras, alarm systems, and remote monitoring give me peace of mind. 🏠🔒 #SmartHome </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">Loving how cosmik seamlessly organizes my day! Calendar sync, reminders, and a sleek interface make it a game-changer. 🚀 #ProductivityBoost </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">Just discovered the magic of cosmik! Real-time collaboration, file sharing, and intuitive design make teamwork a breeze. 👥💼 #TechRevolution </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">With cosmik, my fitness goals are on point! Smart tracking, personalized insights, and goal setting keep me motivated. 🏋️‍♂️📈 #HealthTech </div>
+				<div class="rounded-xl border border-slate-400/5 p-6 bg-slate-800/25 text-sm text-slate-600">cosmik has revolutionized my learning experience! Interactive lessons, progress tracking, and a vast knowledge base make it my go-to study buddy. 📚🎓 #EdTech </div>
+			</div>
+			
+		</div>
+
+		<Footer />
+
 	</body>
 </html>

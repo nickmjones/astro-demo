@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+/* Animation
+-----------------------------*/
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.stars {
+  animation: spin 200s infinite;
+}
+
+.fade-item {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.shiny {
+  box-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.star {
+  top: 0;
+  right: -200px;
+  position: absolute;
+  transition: transform 1s ease-in-out;
+  transform: rotate(-30deg);
+}

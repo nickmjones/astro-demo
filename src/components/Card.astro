@@ -1,0 +1,13 @@
+---
+const { spanCount, textOrientation, titleText, bodyText } = Astro.props;
+---
+
+<div class={`rounded-xl border border-slate-300/5 p-8 bg-slate-800/25 md:col-span-${spanCount} text-center md:text-${textOrientation} shadow-lg shadow-black/30 fade-item`}>
+  <slot />
+  <h3 class="text-xl text-slate-300 mb-2 font-semibold">
+    { titleText }
+  </h3>
+  <p class="text-base text-slate-500 leading-tight">
+    { bodyText }
+  </p>
+</div>

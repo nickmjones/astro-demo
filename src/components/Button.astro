@@ -1,0 +1,21 @@
+---
+const { buttonType, buttonText, buttonLink } = Astro.props
+---
+
+{
+  () => {
+    if (buttonType === "primary") {
+      return (
+        <button class="bg-green-700 hover:bg-green-600 duration-200 transition-all border border-green-500/50 py-2 px-5 rounded-lg text-sm text-green-200/60 hover:text-green-100">
+          <a href={buttonLink} target="_blank">{buttonText}</a>
+        </button>
+      );
+    } else {
+      return (
+        <button class="bg-slate-800 hover:bg-slate-700 duration-200 border border-slate-700/50 py-2 px-5 rounded-lg text-sm text-slate-200/60">
+          <a href={buttonLink} target="_blank">{buttonText}</a>
+        </button>
+      );
+    }
+  }
+}
