@@ -1,6 +1,5 @@
 ---
 import starfield from "../assets/images/starfield.png";
-import meteor from "../assets/images/meteor.png";
 import screenshot from "../assets/images/screenshot.png";
 import { Image } from "astro:assets";
 import Button from "../components/Button.astro";
@@ -24,13 +23,17 @@ import "../assets/styles/global.css";
 	
 		
 		<!-- star field -->
-		<canvas class="flex w-full h-full overflow-hidden absolute top-0 left-0 -z-20" id="starfield">
-		</canvas>
+		<div class="flex w-full h-[1440px] overflow-hidden absolute top-0 left-0 -z-20" id="starfield">
+			<div class="stars -z-20 mx-auto">
+				<Image src={starfield} alt="A field of stars" class="object-fill" />
+			</div>
+		</div>
 
 		<!-- second deck -->
 		<div class="bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-fuchsia-600/30 to-slate-800/0">
 
 			<Navigation />
+			
 			<!-- marquee -->
 			<div class="container mx-auto pt-24 max-w-5xl">
 
@@ -62,7 +65,7 @@ import "../assets/styles/global.css";
 		</div>
 
 		<!-- third deck -->
-		<div class="bg-gradient-to-r from-slate-900/0 via-slate-500/50 to-slate-900/0 h-[1px] w-full"></div>
+		<div class="bg-gradient-to-r from-slate-900 via-slate-500 to-slate-900 h-[1px] w-full"></div>
 
 		<div class="bg-slate-900 p-4 md:p-16">
 
